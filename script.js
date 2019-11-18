@@ -53,11 +53,22 @@ function callback(entries, observer) {
 
         //if intersecting
         circle.classList.add("show");
+        loadcourtaindSVG();
         showDetails(circle.dataset.year);
+
 
         //no longer observes
         //observer.unobserve(entry.target);
     });
+}
+
+//open the curtains
+function loadcourtaindSVG() {
+    fetch("svg/curtains.svg")
+        .then(e => e.text())
+        .then(data => {
+            document.querySelector("#Layer_1").innerHTML = data;
+        });
 }
 
 allSections.forEach(section => {
@@ -77,7 +88,7 @@ function showDetails(year) {
         if (data.gsx$year.$t === year) {
             description.querySelector(".year").innerHTML = data.gsx$year.$t;
             description.querySelector(".text").innerHTML = data.gsx$description.$t;
-            document.querySelector("img#outfit").src = data.gsx$outfit.$t
+            document.querySelector(".containerB #girl1").src = data.gsx$outfit.$t
         }
 
     }

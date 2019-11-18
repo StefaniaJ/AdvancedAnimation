@@ -1,139 +1,130 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #151a28;
-    color: white;
+  background-color: #151a28;
+  color: white;
 }
 
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
 }
 
 .containerA {
-    grid-column: 1/2;
-
+  grid-column: 1/2;
 }
 
 .containerB {
-    grid-column: 2/3;
-    position: relative;
+  grid-column: 2/3;
+  position: relative;
 }
 
 #Layer_1 {
-    position: fixed;
-    transform: translate(-50%, -50%);
-    display: inline-block;
-    left: 77%;
-    top: 46%;
-    z-index: 10;
-    height: 123vh;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  left: 77%;
+  top: 46%;
+  z-index: 10;
+  height: 123vh;
 }
 
 #girl1 {
-    top: calc(53% - 25px);
-    left: calc(80.5% - 25px);
-    position: fixed;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 15%;
+  top: calc(53% - 25px);
+  left: calc(80.5% - 25px);
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 15%;
 }
-
 
 #Layer_2 {
-    /* transform: translate(43%, 42%);
+  /* transform: translate(43%, 42%);
     position: fixed;
     width: 34%; */
-    transform: translate(14.5%, 22%);
-    position: fixed;
-    width: 60%;
+  transform: translate(14.5%, 22%);
+  position: fixed;
+  width: 60%;
 }
 
-
 .reflector {
-    width: 0;
-    height: 191px;
-    box-shadow: 4px 195px 40px 20px #0FC;
-    top: -167px;
-    position: fixed;
+  width: 0;
+  height: 191px;
+  box-shadow: 4px 195px 40px 20px #0fc;
+  top: -167px;
+  position: fixed;
 }
 
 .ref1 {
-    left: 68%;
-    transform: rotate(-6deg);
-    animation: jumping 3s linear infinite;
+  left: 68%;
+  transform: rotate(-6deg);
+  animation: jumping 3s linear infinite;
 }
 
 .ref2 {
-    left: 90%;
-    transform: rotate(6deg);
-    animation: jump 3s linear infinite;
+  left: 90%;
+  transform: rotate(6deg);
+  animation: jump 3s linear infinite;
 }
-
 
 .description {
-    /* border: 0.5px solid white; */
-    width: 30vw;
-    height: 20vh;
-    position: fixed;
-    color: white;
-    left: 20vw;
-    top: 40vh;
-    /* opacity: 0; */
+  /* border: 0.5px solid white; */
+  width: 30vw;
+  height: 20vh;
+  position: fixed;
+  color: white;
+  left: 20vw;
+  top: 40vh;
 }
 
-
 #timeline {
-    position: fixed;
+  position: fixed;
 }
 
 section {
-    height: 100vh;
+  height: 100vh;
 }
 
 section svg {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in;
 }
 
 .show {
-    opacity: 1;
+  opacity: 1;
 }
-
-
 
 @keyframes jumping {
-    0% {
-        transform: rotate(-8deg);
-    }
+  0% {
+    transform: rotate(-8deg);
+  }
 
-    50% {
-        transform: rotate(-55deg);
-    }
+  50% {
+    transform: rotate(-55deg);
+  }
 
-    100% {
-        transform: rotate(-8deg);
-    }
+  100% {
+    transform: rotate(-8deg);
+  }
 }
 
-
 @keyframes jump {
-    0% {
-        transform: rotate(8deg);
-    }
+  0% {
+    transform: rotate(8deg);
+  }
 
-    50% {
-        transform: rotate(55deg);
-    }
+  50% {
+    transform: rotate(55deg);
+  }
 
-    100% {
-        transform: rotate(8deg);
-    }
+  100% {
+    transform: rotate(8deg);
+  }
 }
