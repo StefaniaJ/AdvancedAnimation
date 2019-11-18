@@ -33,11 +33,17 @@ body {
     z-index: 10;
     height: 123vh; */
 
+
     position: fixed;
     z-index: 10;
-    width: 47%;
-    top: -119px;
+    /* width: 47%; */
+    /* top: -119px; */
     right: 0;
+
+
+
+    width: 38vw;
+    top: 0;
 }
 
 #girl1 {
