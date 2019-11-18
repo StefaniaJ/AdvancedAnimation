@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #151a28;
+    color: white;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.containerA {
+    grid-column: 1/2;
+
+}
+
+.containerB {
+    grid-column: 2/3;
+    position: relative;
+}
+
+#Layer_1 {
+    position: relative;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    left: 48%;
+    top: 16%;
+    z-index: 10;
+}
+
+
+
+#girl1 {
+    top: calc(22% - 25px);
+    left: calc(57% - 25px);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 33%;
+
+}
+
+
+#Layer_2 {
+    transform: translate(13%, -91.4%);
+}
+
+
+.reflector {
+    width: 0;
+    height: 191px;
+    box-shadow: 4px 195px 40px 20px #0FC;
+    top: -167px;
+    position: absolute;
+}
+
+.ref1 {
+    left: 27%;
+    transform: rotate(-6deg);
+    animation: jumping 3s linear infinite;
+}
+
+.ref2 {
+    left: 75%;
+    transform: rotate(6deg);
+    animation: jump 3s linear infinite;
+}
+
+
+
+@keyframes jumping {
+    0% {
+        transform: rotate(-8deg);
+    }
+
+    50% {
+        transform: rotate(-55deg);
+    }
+
+    100% {
+        transform: rotate(-8deg);
+    }
+}
+
+
+@keyframes jump {
+    0% {
+        transform: rotate(8deg);
+    }
+
+    50% {
+        transform: rotate(55deg);
+    }
+
+    100% {
+        transform: rotate(8deg);
+    }
+}
