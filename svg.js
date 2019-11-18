@@ -3,17 +3,9 @@
 window.addEventListener("DOMContentLoaded", start);
 
 function start() {
-  //loadcourtaindSVG();
   loadcarpetdSVG();
+  loadBullets();
 }
-
-// function loadcourtaindSVG() {
-//   fetch("svg/curtains.svg")
-//     .then(e => e.text())
-//     .then(data => {
-//       document.querySelector("#Layer_1").innerHTML = data;
-//     });
-// }
 
 function loadcarpetdSVG() {
   fetch("svg/carpet.svg")
@@ -21,4 +13,17 @@ function loadcarpetdSVG() {
     .then(data => {
       document.querySelector("#Layer_2").innerHTML = data;
     });
+}
+
+const sections = document.querySelectorAll("section");
+
+function loadBullets() {
+  sections.forEach(section => {
+    fetch("svg/bullet.svg")
+      .then(e => e.text())
+      .then(data => {
+        section.innerHTML = data;
+        section.querySelector("svg").dataset.year = section.dataset.decade;
+      });
+  })
 }

@@ -1,36 +1,45 @@
-// Get a reference to the <path>
-var path = document.querySelector("#star-path");
+loadPath();
 
-// Get length of path... ~577px in this demo
-var pathLength = path.getTotalLength();
+function loadPath() {
+    fetch("svg/path.svg")
+        .then(e => e.text())
+        .then(data => {
+            document.querySelector(".timeline").innerHTML = data;
+            drawPath(document.querySelector(".timeline").querySelector("svg"));
+        });
+}
 
-// Make very long dashes (the length of the path itself)
-path.style.strokeDasharray = pathLength + " " + pathLength;
+function drawPath(svgPath) {
 
-// Offset the dashes so the it appears hidden entirely
-path.style.strokeDashoffset = pathLength;
+    let path = svgPath.querySelector("#path");
 
-// When the page scrolls...
-window.addEventListener("scroll", function (e) {
-    // What % down is it?
-    var scrollPercentage =
-        (document.documentElement.scrollTop + document.body.scrollTop) /
-        (document.documentElement.scrollHeight -
-            document.documentElement.clientHeight);
+    // Get length of path... ~577px in this demo
+    var pathLength = path.getTotalLength();
 
-    //console.log("scroll %: " + scrollPercentage);
+    // Make very long dashes (the length of the path itself)
+    path.style.strokeDasharray = pathLength + " " + pathLength;
 
+    // Offset the dashes so the it appears hidden entirely
+    path.style.strokeDashoffset = pathLength;
 
-    // Length to offset the dashes
-    var drawLength = pathLength * scrollPercentage;
+    // When the page scrolls...
+    window.addEventListener("scroll", function (e) {
+        // What % down is it?
+        var scrollPercentage =
+            (document.documentElement.scrollTop + document.body.scrollTop) /
+            (document.documentElement.scrollHeight -
+                document.documentElement.clientHeight);
 
-    //console.log("draw length: " + drawLength);
+        // Length to offset the dashes
+        var drawLength = pathLength * scrollPercentage;
 
-    // Draw in reverse
-    path.style.strokeDashoffset = pathLength - drawLength;
-});
+        // Draw in reverse
+        path.style.strokeDashoffset = pathLength - drawLength;
+    });
+}
 
 /*********************************************************** */
+
 
 const description = document.querySelector(".description");
 
@@ -38,24 +47,20 @@ const allSections = document.querySelectorAll("section");
 
 let options = {
     root: null, //the viewport
-    threshold: 0.6
+    threshold: 0.5
 };
 
 let observer = new IntersectionObserver(callback, options);
 
-function callback(entries, observer) {
+function callback(entries) {
     entries.forEach(entry => {
-        const circle = entry.target.querySelector("svg");
-
         if (!entry.isIntersecting) {
             return;
         }
 
         //if intersecting
-        circle.classList.add("show");
-        loadcourtaindSVG();
-        showDetails(circle.dataset.year);
-
+        loadcurtainsSVG();
+        showDetails(entry.target.dataset.decade);
 
         //no longer observes
         //observer.unobserve(entry.target);
@@ -63,7 +68,7 @@ function callback(entries, observer) {
 }
 
 //open the curtains
-function loadcourtaindSVG() {
+function loadcurtainsSVG() {
     fetch("svg/curtains.svg")
         .then(e => e.text())
         .then(data => {
