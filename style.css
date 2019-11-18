@@ -47,17 +47,15 @@ body {
 }
 
 #girl1 {
-    top: calc(53% - 25px);
-    /* left: calc(80.5% - 25px); */
-    position: fixed;
+    /* top: calc(53% - 25px);
     transform: translate(-50%, -50%);
-    z-index: 1;
-    /* width: 15%; */
-
-    /* left: calc(81.5% - 25px); */
     width: 25%;
+    left: calc(83.5% - 25px); */
 
-    left: calc(83.5% - 25px);
+    position: fixed;
+    z-index: 1;
+    width: 30%;
+    right: 4%;
 }
 
 #Layer_2 {
