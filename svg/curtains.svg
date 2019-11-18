@@ -20,7 +20,7 @@
 
                             <animate attributeName="d"
                             from="M 275 0 L 0 0 L 0 600 L 275 600 L 275 300 Q 275 150 275 0  " 
-                            to="M 200 0 L 0 0 L 0 600 L 175 600 L 50 300 Q 250 200 200 0   " dur="3s"
+                            to="M 200 0 L 0 0 L 0 600 L 175 600 L 50 300 Q 175 200 175 0   " dur="3s"
                             repeatCount="1" fill="freeze">
                               
                     </path>
@@ -34,7 +34,7 @@
                        
                         <animate attributeName="d"
                             from="M 275 0 L 550 0 L 550 600 L 275 600 L 275 300 Q 275 150 275 0   "
-                            to="M 300 0 L 550 0 L 550 600 L 350 600 L 450 300 Q 300 200 300 0   " dur="3s"
+                            to="M 300 0 L 550 0 L 550 600 L 350 600 L 450 300 Q 350 200 350 0   " dur="3s"
                             repeatCount="1" fill="freeze" />
 
                             
