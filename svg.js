@@ -1,15 +1,24 @@
 "use strict";
 
-let courtainsSVG = document.querySelector("#Layer_1");
+window.addEventListener("DOMContentLoaded", start);
 
-// function start() {
-//   loadSVG();
-// }
+function start() {
+  loadcourtaindSVG();
+  loadcarpetdSVG();
+}
 
-// function loadSVG() {
-//   fetch("original.svg")
-//     .then(e => e.text())
-//     .then(data => {
-//       placeSvg.innerHTML = data;
-//     });
-// }
+function loadcourtaindSVG() {
+  fetch("svg/curtains.svg")
+    .then(e => e.text())
+    .then(data => {
+      document.querySelector("#Layer_1").innerHTML = data;
+    });
+}
+
+function loadcarpetdSVG() {
+  fetch("svg/carpet.svg")
+    .then(e => e.text())
+    .then(data => {
+      document.querySelector("#Layer_2").innerHTML = data;
+    });
+}

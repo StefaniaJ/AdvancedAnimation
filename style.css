@@ -30,7 +30,7 @@ body {
     transform: translate(-50%, -50%);
     display: inline-block;
     left: 77%;
-    top: 41%;
+    top: 46%;
     z-index: 10;
     height: 123vh;
 }
@@ -46,9 +46,12 @@ body {
 
 
 #Layer_2 {
-    transform: translate(43%, 42%);
+    /* transform: translate(43%, 42%);
     position: fixed;
-    width: 34%;
+    width: 34%; */
+    transform: translate(14.5%, 22%);
+    position: fixed;
+    width: 60%;
 }
 
 
