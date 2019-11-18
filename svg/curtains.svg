@@ -1,0 +1,21 @@
+   <svg id="Layer_1" data-name="scene" version="1.1" viewBox="0 0 500 600">
+
+                    <!-- Left -->
+                    <path class="color" d="M 50 100 L 287 100 Q 287 250 287 300 L 287 600 L 50 600 L 50 100 "
+                        fill="red">
+
+                        <animate attributeName="d"
+                            from="M 50 100 L 287 100 Q 287 250 287 300 L 287 600 L 50 600 L 50 100  "
+                            to="M 50 100 L 213 100 Q 200 250 100 300 L 175 600 L 50 600 L 50 100  " dur="3s"
+                            repeatCount="1" fill="freeze">
+                    </path>
+
+                    <!-- Right -->
+                    <path class="color" d="M 300 100 L 500 100 Q 500 250 500 600 L 262 600 L 262 300 Q 262 250 262 100"
+                        fill="red">
+                        <animate attributeName="d"
+                            from="M 300 100 L 500 100 Q 500 250 500 600 L 262 600 L 262 300 Q 262 250 262 100 "
+                            to="M 300 100 L 500 100 Q 500 250 500 600 L 375 600 L 450 300 Q 350 250 338 100 " dur="3s"
+                            repeatCount="1" fill="freeze" />
+                    </path>
+                </svg>
