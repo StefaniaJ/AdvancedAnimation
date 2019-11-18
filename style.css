@@ -26,14 +26,21 @@ body {
 }
 
 #Layer_1 {
-    position: fixed;
+    /* position: fixed;
     transform: translate(-50%, -50%);
     display: inline-block;
     left: 77%;
     top: 46%;
     z-index: 10;
-    height: 123vh;
+    height: 123vh; */
+
+    position: fixed;
+    z-index: 10;
+    width: 47%;
+    top: -119px;
+    right: 0;
 }
+
 
 #girl1 {
     top: calc(53% - 25px);
