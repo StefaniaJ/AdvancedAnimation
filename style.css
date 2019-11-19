@@ -79,7 +79,7 @@ body {
 }
 
 .ref1 {
-    left: 68%;
+    left: 70%;
     transform: rotate(-6deg);
     animation: moveleft 3s linear infinite;
 }
