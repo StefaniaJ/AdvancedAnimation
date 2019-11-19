@@ -54,14 +54,15 @@ let observer = new IntersectionObserver(callback, options);
 
 function callback(entries) {
     entries.forEach(entry => {
+
         if (!entry.isIntersecting) {
             return;
         }
 
         //if intersecting
         loadcurtainsSVG();
+        description.classList.add("show");
         showDetails(entry.target.dataset.decade);
-
         //no longer observes
         //observer.unobserve(entry.target);
     });
@@ -76,8 +77,36 @@ function loadcurtainsSVG() {
         });
 }
 
+let optionsCur = {
+    root: null, //the viewport
+    threshold: 0.1
+};
+
+let curtainsObserver = new IntersectionObserver(closeCur, optionsCur);
+
+function closeCur(entries) {
+    entries.forEach(entry => {
+
+        if (!entry.isIntersecting) {
+            return;
+        }
+        closecurtainsSVG();
+
+    });
+}
+
+//close
+function closecurtainsSVG() {
+    fetch("svg/closecurtains.svg")
+        .then(e => e.text())
+        .then(data => {
+            document.querySelector("#Layer_1").innerHTML = data;
+        });
+}
+
 allSections.forEach(section => {
     observer.observe(section);
+    curtainsObserver.observe(section);
 });
 
 function showDetails(year) {
@@ -90,9 +119,11 @@ function showDetails(year) {
 
     function display(data) {
 
+        //description.classList.add("show");
+
         if (data.gsx$year.$t === year) {
-            description.querySelector(".year").innerHTML = data.gsx$year.$t;
-            description.querySelector(".text").innerHTML = data.gsx$description.$t;
+            description.querySelector(".year").textContent = data.gsx$year.$t;
+            description.querySelector(".text").textContent = data.gsx$description.$t;
             document.querySelector(".containerB #girl1").src = data.gsx$outfit.$t
         }
 
