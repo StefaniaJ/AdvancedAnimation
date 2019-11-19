@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Pinyon+Script&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -73,7 +75,7 @@ body {
 .reflector {
     width: 0;
     height: 191px;
-    box-shadow: 4px 195px 40px 20px #0fc;
+    box-shadow: 4px 195px 40px 20px #d4af37;
     top: -167px;
     position: fixed;
 }
@@ -90,6 +92,10 @@ body {
     animation: moveright 3s linear infinite;
 }
 
+.color {
+    fill: rgb(165, 24, 24);
+}
+
 .description {
     /* border: 0.5px solid white; */
     width: 30vw;
@@ -98,6 +104,22 @@ body {
     color: white;
     left: 20vw;
     top: 40vh;
+
+}
+
+.description h1 {
+    color: #d4af37;
+    font-family: 'Pinyon Script', cursive;
+    opacity: 0.8;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.description .decoration {
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 5vh;
 }
 
 .timeline {

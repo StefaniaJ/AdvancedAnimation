@@ -97,6 +97,14 @@ function showDetails(year) {
         }
 
     }
+
+    //show text decoration
+    fetch("svg/ornament.svg")
+        .then(e => e.text())
+        .then(data => {
+            document.querySelector(".description .decoration").innerHTML = data;
+        });
+
 }
 
 // let observer = new IntersectionObserver(hide, hideOptions);

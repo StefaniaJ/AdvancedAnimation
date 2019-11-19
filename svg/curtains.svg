@@ -1,7 +1,7 @@
    <svg data-name="scene" version="1.1" viewBox="0 0 500 600">
 
                     <!-- Left -->
-                        <path class="color" d="M 275 0 L 0 0 L 0 600 L 275 600 L 275 300 Q 275 150 275 0  "   fill="red">  
+                        <path class="color" d="M 275 0 L 0 0 L 0 600 L 275 600 L 275 300 Q 275 150 275 0  "  >  
 
                             <animate attributeName="d"
                             from="M 275 0 L 0 0 L 0 600 L 275 600 L 275 300 Q 275 150 275 0  " 
@@ -12,7 +12,7 @@
 
                     <!-- Right -->
  <path class="color" d=" M 275 0 L 550 0 L 550 600 L 275 600 L 275 300 Q 275 150 275 0  "
-                        fill="red">
+                        >
                        
                         <animate attributeName="d"
                             from="M 275 0 L 550 0 L 550 600 L 275 600 L 275 300 Q 275 150 275 0   "
