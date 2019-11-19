@@ -100,8 +100,10 @@ body {
     top: 40vh;
 }
 
-#timeline {
+.timeline {
     position: fixed;
+    width: 100%;
+    height: 100vh;
 }
 
 section {
@@ -111,12 +113,7 @@ section {
 section svg {
     width: 100%;
     height: 100%;
-    opacity: 0;
     transition: opacity 1s ease-in;
-}
-
-.show {
-    opacity: 1;
 }
 
 @keyframes moveleft {
