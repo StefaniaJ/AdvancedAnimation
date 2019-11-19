@@ -143,3 +143,74 @@ section svg {
         transform: rotate(8deg);
     }
 }
+
+@media only screen and (max-width:600px) {
+
+    .wrapper {
+        display: block;
+        background-color: blue;
+    }
+
+    .scene-mobile {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        height: 100vh;
+        background-color: blue;
+        width: auto;
+    }
+
+
+
+
+    #Layer_1 {
+
+        right: 50%;
+        width: 38.4vw;
+        top: 0;
+
+        grid-column: 1/4;
+        grid-row: 1/4;
+    }
+
+    #girl1 {
+        position: fixed;
+        z-index: 1;
+        width: 30%;
+        right: 4%;
+
+
+        grid-column: 2/3;
+        grid-row: 2/4;
+    }
+
+    #Layer_2 {
+        position: fixed;
+        width: 25%;
+        transform: translate(78.5%, 55%);
+
+        grid-column: 2/3;
+        grid-row: 3/4;
+    }
+
+    .reflector {
+        width: 0;
+        height: 191px;
+        box-shadow: 4px 195px 40px 20px #0fc;
+        top: -167px;
+        position: fixed;
+    }
+
+    .ref1 {
+        left: 70%;
+        transform: rotate(-6deg);
+        animation: moveleft 3s linear infinite;
+    }
+
+    .ref2 {
+        left: 90%;
+        transform: rotate(6deg);
+        animation: moveright 3s linear infinite;
+    }
+
+}
