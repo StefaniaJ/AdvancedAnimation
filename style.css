@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Pinyon+Script&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,73 +23,67 @@ body {
 
 .containerB {
     grid-column: 2/3;
-    position: relative;
 }
 
 #Layer_1 {
-    /* position: fixed;
-    transform: translate(-50%, -50%);
-    display: inline-block;
-    left: 77%;
-    top: 46%;
-    z-index: 10;
-    height: 123vh; */
-
-
     position: fixed;
     z-index: 10;
-    /* width: 47%; */
-    /* top: -119px; */
-    right: 0;
-
-
-
-    width: 38.4vw;
+    width: 100%;
+    height: 100%;
     top: 0;
 }
 
-#girl1 {
-    /* top: calc(53% - 25px);
-    transform: translate(-50%, -50%);
-    width: 25%;
-    left: calc(83.5% - 25px); */
+#Layer_1 svg {
+    position: fixed;
+    height: 100%;
+    right: 0;
+}
 
+#girl1 {
     position: fixed;
     z-index: 1;
-    width: 30%;
-    right: 4%;
+    width: 400px;
+    height: 624.34px;
+    right: 80px;
 }
 
 #Layer_2 {
-    /* transform: translate(43%, 42%);
-    width: 34%; */
-    /* transform: translate(14.5%, 22%); */
     position: fixed;
-    /* width: 60%;
-    transform: translate(8.5%, 22%); */
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
 
-    width: 25%;
-    transform: translate(78.5%, 55%);
+
+#Layer_2 svg {
+    position: fixed;
+    height: 50%;
+    bottom: 0;
+    right: 120px;
 }
 
 .reflector {
     width: 0;
     height: 191px;
-    box-shadow: 4px 195px 40px 20px #0fc;
+    box-shadow: 4px 195px 40px 20px #d4af37;
     top: -167px;
     position: fixed;
 }
 
 .ref1 {
-    left: 70%;
+    right: 480px;
     transform: rotate(-6deg);
     animation: moveleft 3s linear infinite;
 }
 
 .ref2 {
-    left: 90%;
+    right: 100px;
     transform: rotate(6deg);
     animation: moveright 3s linear infinite;
+}
+
+.color {
+    fill: rgb(165, 24, 24);
 }
 
 .description {
@@ -98,6 +94,27 @@ body {
     color: white;
     left: 20vw;
     top: 40vh;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.show {
+    opacity: 1;
+}
+
+.description h1 {
+    color: #d4af37;
+    font-family: 'Pinyon Script', cursive;
+    opacity: 0.8;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.description .decoration {
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 5vh;
 }
 
 .timeline {
@@ -144,73 +161,35 @@ section svg {
     }
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:614px) {
 
-    .wrapper {
-        display: block;
-        background-color: blue;
+    .timeline,
+    section {
+        opacity: 0;
     }
+}
 
-    .scene-mobile {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto;
-        height: 100vh;
-        background-color: blue;
-        width: auto;
-    }
-
-
-
-
-    #Layer_1 {
-
-        right: 50%;
-        width: 38.4vw;
-        top: 0;
-
-        grid-column: 1/4;
-        grid-row: 1/4;
-    }
+@media only screen and (max-width:800px) {
 
     #girl1 {
-        position: fixed;
-        z-index: 1;
-        width: 30%;
-        right: 4%;
-
-
-        grid-column: 2/3;
-        grid-row: 2/4;
-    }
-
-    #Layer_2 {
-        position: fixed;
-        width: 25%;
-        transform: translate(78.5%, 55%);
-
-        grid-column: 2/3;
-        grid-row: 3/4;
+        width: 300px;
+        height: 468.25px;
+        top: 0;
+        right: 135px;
     }
 
     .reflector {
-        width: 0;
-        height: 191px;
-        box-shadow: 4px 195px 40px 20px #0fc;
-        top: -167px;
+        height: 301px;
+    }
+
+    .description {
         position: fixed;
-    }
-
-    .ref1 {
-        left: 70%;
-        transform: rotate(-6deg);
-        animation: moveleft 3s linear infinite;
-    }
-
-    .ref2 {
-        left: 90%;
-        transform: rotate(6deg);
-        animation: moveright 3s linear infinite;
+        z-index: 1;
+        width: 35vw;
+        height: 20vh;
+        left: 40%;
+        top: 65vh;
+        font-size: 0.8rem;
     }
 
 }

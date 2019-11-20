@@ -1,24 +1,34 @@
-   <svg data-name="scene" version="1.1" viewBox="0 0 500 600">
+   <svg  data-name="scene" version="1.1" viewBox="0 0 500 600">
 
                     <!-- Left -->
-                        <path class="color" d="M 275 0 L 0 0 L 0 600 L 275 600 L 275 300 Q 275 150 275 0  "   fill="red">  
+                        <path id="curClosed" class="color" d="M 275 0 L 0 0 L 0 600 L 275 600 L 275 300 Q 275 150 275 0  "  />  
+                        <!-- <path id="curOpen"  class="color" d="M 200 0 L 0 0 L 0 600 L 175 600 L 50 300 Q 175 200 175 0 "  />   -->
 
-                            <animate attributeName="d"
+                            <animate xlink:href="#curClosed" attributeName="d"
                             from="M 275 0 L 0 0 L 0 600 L 275 600 L 275 300 Q 275 150 275 0  " 
-                            to="M 200 0 L 0 0 L 0 600 L 175 600 L 50 300 Q 175 200 175 0   " dur="2s" begin="0.5s"
-                            repeatCount="1" fill="freeze">
-                              
-                    </path>
+                            to="M 200 0 L 0 0 L 0 600 L 175 600 L 50 300 Q 175 200 175 0   " dur="1s" begin="0.5s"
+                            repeatCount="1" fill="freeze"/>
+
+                            <!-- <animate xlink:href="#curOpen" attributeName="d"
+                            from="M 200 0 L 0 0 L 0 600 L 175 600 L 50 300 Q 175 200 175 0  " 
+                            to=" M 275 0 L 0 0 L 0 600 L 275 600 L 275 300 Q 275 150 275 0  " dur="2s" begin="0.5s"
+                            repeatCount="1" fill="freeze"/> -->
+                    
 
                     <!-- Right -->
- <path class="color" d=" M 275 0 L 550 0 L 550 600 L 275 600 L 275 300 Q 275 150 275 0  "
-                        fill="red">
+                        <path id="curClosedR"  class="color" d=" M 275 0 L 550 0 L 550 600 L 275 600 L 275 300 Q 275 150 275 0  "/>
+                        <!-- <path id="curOpenR"  class="color" d=" M 300 0 L 550 0 L 550 600 L 350 600 L 450 300 Q 350 200 350 0  "
+                        /> -->
                        
-                        <animate attributeName="d"
+                        <animate xlink:href="#curClosedR" attributeName="d"
                             from="M 275 0 L 550 0 L 550 600 L 275 600 L 275 300 Q 275 150 275 0   "
-                            to="M 300 0 L 550 0 L 550 600 L 350 600 L 450 300 Q 350 200 350 0   " dur="2s" begin="0.5s"
+                            to="M 300 0 L 550 0 L 550 600 L 350 600 L 450 300 Q 350 200 350 0   " dur="1s" begin="0.5s"
                             repeatCount="1" fill="freeze" />
+                            
+                <!-- <animate xlink:href="#curOpenR" attributeName="d"
+                            from=" M 300 0 L 550 0 L 550 600 L 350 600 L 450 300 Q 350 200 350 0  "
+                            to="M 275 0 L 550 0 L 550 600 L 275 600 L 275 300 Q 275 150 275 0" dur="2s" begin="0.5s"
+                            repeatCount="1" fill="freeze" /> -->
 
                             
-                    </path>
                 </svg>
