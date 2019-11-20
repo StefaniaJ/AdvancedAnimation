@@ -13,25 +13,25 @@ function drawPath(svgPath) {
 
     let path = svgPath.querySelector("#path");
 
-    // Get length of path... ~577px in this demo
-    var pathLength = path.getTotalLength();
+    // Get length of path...
+    let pathLength = path.getTotalLength();
 
     // Make very long dashes (the length of the path itself)
     path.style.strokeDasharray = pathLength + " " + pathLength;
 
-    // Offset the dashes so the it appears hidden entirely
+    // Offset the dashes so it appears hidden entirely
     path.style.strokeDashoffset = pathLength;
 
     // When the page scrolls...
     window.addEventListener("scroll", function (e) {
         // What % down is it?
-        var scrollPercentage =
+        let scrollPercentage =
             (document.documentElement.scrollTop + document.body.scrollTop) /
             (document.documentElement.scrollHeight -
                 document.documentElement.clientHeight);
 
         // Length to offset the dashes
-        var drawLength = pathLength * scrollPercentage;
+        let drawLength = pathLength * scrollPercentage;
 
         // Draw in reverse
         path.style.strokeDashoffset = pathLength - drawLength;
@@ -63,8 +63,6 @@ function callback(entries) {
         loadcurtainsSVG();
         description.classList.add("show");
         showDetails(entry.target.dataset.decade);
-        //no longer observes
-        //observer.unobserve(entry.target);
     });
 }
 
@@ -77,25 +75,25 @@ function loadcurtainsSVG() {
         });
 }
 
-let optionsCur = {
-    root: null, //the viewport
-    threshold: 0.1
-};
-
-let curtainsObserver = new IntersectionObserver(closeCur, optionsCur);
-
-function closeCur(entries) {
-    entries.forEach(entry => {
-
-        if (!entry.isIntersecting) {
-            return;
-        }
-        closecurtainsSVG();
-
-    });
+//text animation
+const textOptions = {
+    root: null,
+    threshold: 0
 }
 
-//close
+const textObserver = new IntersectionObserver(function (entries, textObserver) {
+    entries.forEach(entry => {
+        description.classList.remove("show");
+
+        closecurtainsSVG();
+    })
+}, textOptions);
+
+allSections.forEach(section => {
+    observer.observe(section);
+    textObserver.observe(section);
+});
+
 function closecurtainsSVG() {
     fetch("svg/closecurtains.svg")
         .then(e => e.text())
@@ -103,11 +101,6 @@ function closecurtainsSVG() {
             document.querySelector("#Layer_1").innerHTML = data;
         });
 }
-
-allSections.forEach(section => {
-    observer.observe(section);
-    curtainsObserver.observe(section);
-});
 
 function showDetails(year) {
 
@@ -119,10 +112,10 @@ function showDetails(year) {
 
     function display(data) {
 
-        //description.classList.add("show");
-
         if (data.gsx$year.$t === year) {
             description.querySelector(".year").textContent = data.gsx$year.$t;
+            description.querySelector(".year").style.fontFamily = data.gsx$font.$t;
+            //description.querySelector(".year").style.color = data.gsx$color.$t;
             description.querySelector(".text").textContent = data.gsx$description.$t;
             document.querySelector(".containerB #girl1").src = data.gsx$outfit.$t
         }
@@ -137,5 +130,3 @@ function showDetails(year) {
         });
 
 }
-
-// let observer = new IntersectionObserver(hide, hideOptions);
