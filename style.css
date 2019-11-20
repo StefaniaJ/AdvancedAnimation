@@ -125,7 +125,7 @@ body {
     top: 5%;
     opacity: 0;
     transition: opacity 1s;
-    z-index: 2;
+    z-index: 20;
 }
 
 .show {
@@ -219,6 +219,7 @@ button {
 /* ////////  Modal ///////*/
 
 .modal-bg {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -226,10 +227,12 @@ button {
     width: 100%;
     background-color: rgba(0, 0, 0, .8);
     overflow: auto;
+    z-index: 30;
 }
 
 .modal-content {
     background-color: white;
+    color: black;
     width: 80%;
     height: 90%;
     margin: auto;

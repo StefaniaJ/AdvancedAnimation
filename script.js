@@ -105,6 +105,8 @@ function closecurtainsSVG() {
 }
 
 function showDetails(year) {
+  const modal = document.querySelector(".modal-bg");
+
   fetch(myJSON)
     .then(e => e.json())
     .then(data => data.feed.entry.forEach(display));
@@ -118,42 +120,33 @@ function showDetails(year) {
       document.querySelector(".containerB #girl1").src = data.gsx$outfit.$t;
       description.querySelector(".info-link").textContent = data.gsx$info.$t;
 
-      infoBtn.addEventListener("click", showInfo);
-
-      function showInfo() {
-        window.open(
-          description.querySelector(".info-link").textContent,
-          "_blank"
-        );
-      }
+      modal.querySelector(".year").textContent = data.gsx$year.$t;
+      modal.querySelector(".year").style.fontFamily = data.gsx$font.$t;
+      modal.querySelector(".text").textContent = data.gsx$description.$t;
     }
   }
 
+  infoBtn.addEventListener("click", showInfo);
+
+  function showInfo() {
+    window.open(description.querySelector(".info-link").textContent, "_blank");
+  }
   //show text decoration
   fetch("svg/ornament.svg")
     .then(e => e.text())
     .then(data => {
       document.querySelector(".description .decoration").innerHTML = data;
     });
-}
 
-const modal = document.querySelector(".modal-bg");
-const close = document.querySelector(".close");
+  const close = document.querySelector(".close");
 
-close.addEventListener("click", () => modal.classList.add("hide"));
+  close.addEventListener("click", () => (modal.style.display = "none"));
 
-document.querySelector("#read-btn").addEventListener("click", openModal);
+  document.querySelector("#read-btn").addEventListener("click", openModal);
 
-function openModal() {
-  fetch(myJSON)
-    .then(e => e.json())
-    .then(data => data.feed.entry.forEach(displayInModal));
-}
-
-function displayInModal(data) {
-  modal.querySelector(".year").textContent = data.gsx$year.$t;
-  modal.querySelector(".year").style.fontFamily = data.gsx$font.$t;
-  modal.querySelector(".text").textContent = data.gsx$description.$t;
+  function openModal() {
+    modal.style.display = "block";
+  }
 }
 
 const songBtn = document.querySelector("#music-btn");
