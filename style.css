@@ -231,17 +231,22 @@ button {
 }
 
 .modal-content {
-    background-color: white;
-    color: black;
+    background-color: #721013;
+    color: white;
     width: 80%;
     height: 90%;
     margin: auto;
     margin-top: 5%;
-    overflow: scroll;
     padding: 1em;
     text-align: center;
 }
 
+.modal-content h1 {
+    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #d4af37;
+}
 
 /* /// The Close Button /// */
 .close {
@@ -293,6 +298,15 @@ button {
         transform: rotate(8deg);
     }
 }
+
+@media only screen and (min-width:550px) {
+    .modal-content {
+        width: 70%;
+        height: 70%;
+        margin-top: 7%;
+    }
+}
+
 
 
 @media only screen and (min-width:800px) {
@@ -368,7 +382,8 @@ button {
         width: 26vw;
         height: 30vh;
         left: 10vw;
-        top: 27vh;
+        /* top: 27vh; */
+        top: 14vh;
     }
 
     .description .text {
@@ -413,9 +428,11 @@ button {
 
 }
 
+
 @media only screen and (min-width:900px) {
     .description {
         width: 32vw;
+        top: 27vh;
 
     }
 }
