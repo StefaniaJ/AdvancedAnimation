@@ -43,6 +43,7 @@ const myJSON =
 
 const description = document.querySelector(".description");
 const audio = description.querySelector("audio");
+const infoBtn = document.querySelector("#info-btn");
 
 const allSections = document.querySelectorAll("section");
 
@@ -83,10 +84,9 @@ const textOptions = {
   threshold: 0
 };
 
-const textObserver = new IntersectionObserver(function(entries, textObserver) {
+const textObserver = new IntersectionObserver(function(entries) {
   entries.forEach(entry => {
     description.classList.remove("show");
-
     closecurtainsSVG();
   });
 }, textOptions);
@@ -116,6 +116,16 @@ function showDetails(year) {
       description.querySelector("audio #audioSource").src = data.gsx$song.$t;
       description.querySelector(".text").textContent = data.gsx$description.$t;
       document.querySelector(".containerB #girl1").src = data.gsx$outfit.$t;
+      description.querySelector(".info-link").textContent = data.gsx$info.$t;
+
+      infoBtn.addEventListener("click", showInfo);
+
+      function showInfo() {
+        window.open(
+          description.querySelector(".info-link").textContent,
+          "_blank"
+        );
+      }
     }
   }
 

@@ -129,6 +129,10 @@ body {
     margin-top: 5vh;
 }
 
+.description .info-link {
+    display: none;
+}
+
 .timeline {
     position: fixed;
     width: 100%;
@@ -165,7 +169,7 @@ button {
 .buttons {
     position: fixed;
     bottom: 0;
-    z-index: 1;
+    z-index: 20;
 
     height: 100%;
 }
