@@ -12,18 +12,17 @@ body {
 }
 
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     height: 100vh;
+    width: 100%;
 }
 
 .containerA {
-    grid-column: 1/2;
+    height: 100vh;
 }
 
 .containerB {
-    grid-column: 2/3;
-    position: relative;
+    height: 100vh;
+    margin-top: -178%;
 }
 
 #Layer_1 {
@@ -37,15 +36,16 @@ body {
 #Layer_1 svg {
     position: fixed;
     height: 100%;
-    right: 0;
+    transform: translate(50%, 0);
+    right: 51%;
 }
 
 #girl1 {
     position: fixed;
     z-index: 1;
-    width: 400px;
-    height: 624.34px;
-    right: 80px;
+    width: 100%;
+    height: 75%;
+    top: 18%;
 }
 
 #Layer_2 {
@@ -55,45 +55,77 @@ body {
     top: 0;
 }
 
-
 #Layer_2 svg {
     position: fixed;
-    height: 50%;
-    bottom: 0;
-    right: 120px;
+    height: 67%;
+    transform: translate(50%, 50%);
+    right: 46%;
+}
+
+
+.reflector1,
+.reflector2 {
+    position: fixed;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.reflector1-container {
+    position: fixed;
+    transform: translate(50%, 50%);
+    z-index: 1;
+    height: 100%;
+    right: 48%;
+    top: -77%;
+    margin-right: 175px;
+}
+
+
+.reflector2-container {
+    position: fixed;
+    transform: translate(50%, 50%);
+    z-index: 1;
+    height: 100%;
+    left: 48%;
+    top: -77%;
+    margin-left: 169px;
 }
 
 .reflector {
     width: 0;
     height: 191px;
     box-shadow: 4px 195px 40px 20px #d4af37;
-    top: -167px;
-    position: fixed;
+    z-index: 0;
 }
 
 .ref1 {
-    right: 480px;
     transform: rotate(-6deg);
     animation: moveleft 3s linear infinite;
 }
 
 .ref2 {
-    right: 100px;
     transform: rotate(6deg);
     animation: moveright 3s linear infinite;
 }
+
 
 .color {
     fill: rgb(165, 24, 24);
 }
 
+
 .description {
-    width: 30vw;
-    height: 20vh;
+    width: 68vw;
+    height: 10vh;
     position: fixed;
     color: white;
-    left: 20vw;
-    top: 30vh;
+    left: 17vw;
+    top: 5%;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 2;
 }
 
 .show {
@@ -112,10 +144,14 @@ body {
 
 .description h1 {
     color: #d4af37;
-    font-size: 3rem;
+    font-family: 'Pinyon Script', cursive;
     opacity: 0.8;
     text-align: center;
-    margin-bottom: 3vh;
+    margin-bottom: 1vh;
+}
+
+.description .text {
+    display: none;
 }
 
 .description p {
@@ -124,7 +160,7 @@ body {
 
 .description .decoration {
     width: 50%;
-    display: block;
+    display: none;
     margin: auto;
     margin-top: 5vh;
 }
@@ -141,6 +177,7 @@ body {
 
 section {
     height: 100vh;
+    transform: translate(-6.7%, 0);
 }
 
 section svg {
@@ -149,41 +186,22 @@ section svg {
     transition: opacity 1s ease-in;
 }
 
-/* .buttons {
-    position: fixed;
-    left: 33%;
-    bottom: 2%;
-
-    color: black;
-}
-
-button {
-    border: none;
-    color: white;
-    padding: 12px 16px;
-    cursor: pointer;
-    background-color: transparent;
-} */
-
-
 .buttons {
     position: fixed;
     bottom: 0;
-    z-index: 20;
-
+    z-index: 1;
     height: 100%;
+    width: 100%;
 }
 
 .buttons-content {
     position: fixed;
     transform: translate(50%, 50%);
-    /* left: 38%;
-    bottom: 20%; */
-
-    left: -4%;
-    bottom: 10%;
     z-index: 1;
-    width: 100%;
+    bottom: -39%;
+    height: 100%;
+    right: 48%;
+
 }
 
 button {
@@ -194,7 +212,6 @@ button {
     background-color: transparent;
     z-index: 1;
 }
-
 
 
 
@@ -246,9 +263,6 @@ button {
 
 
 
-
-
-
 @keyframes moveleft {
     0% {
         transform: rotate(-8deg);
@@ -277,48 +291,187 @@ button {
     }
 }
 
-@media only screen and (max-width:614px) {
 
-    .timeline,
+@media only screen and (min-width:800px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .containerA {
+        grid-column: 1/2;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .containerB {
+        grid-column: 2/3;
+        margin-top: 0%;
+        width: 100%;
+        height: 100%;
+    }
+
+    #Layer_1 svg {
+        transform: translate(0, 0);
+        right: 0;
+    }
+
+    #girl-container {
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+
+    #girl-position {
+        position: fixed;
+        height: 55%;
+        height: 100%;
+        transform: translate(50%, 50%);
+        top: -49%;
+        width: 100%;
+        right: 0;
+        margin-right: 235px;
+    }
+
+    #girl1 {
+        position: static;
+        z-index: 1;
+        height: 100%;
+    }
+
+    #Layer_2 svg {
+        right: 0;
+        margin-right: 220px;
+    }
+
+    .reflector1-container {
+        margin-right: 175px;
+        right: 28%;
+        top: -78%;
+    }
+
+    .reflector2-container {
+        top: -78%;
+        margin-left: 332px;
+        right: 2%;
+    }
+
+    .description {
+        width: 26vw;
+        height: 30vh;
+        left: 10vw;
+        top: 27vh;
+    }
+
+    .description .text {
+        display: block;
+    }
+
+
+    .buttons {
+        position: static;
+        bottom: 0;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        margin-top: 3vh;
+    }
+
+
+    .buttons-content {
+        transform: translate(-5%, 0%);
+        bottom: 0;
+        position: static;
+    }
+
+    button {
+        border: none;
+        color: white;
+        padding: 12px 16px;
+        cursor: pointer;
+        background-color: transparent;
+        z-index: 1;
+    }
+
+    #read-btn {
+        display: none;
+    }
+
     section {
-        opacity: 0;
+
+        transform: translate(0, 0);
+    }
+
+
+}
+
+@media only screen and (min-width:900px) {
+    .description {
+        width: 32vw;
+
     }
 }
 
 
-@media only screen and (max-width:800px) {
+@media only screen and (min-width:950px) {
+    .reflector1-container {
+        margin-right: 175px;
+        right: 24%;
 
-    .wrapper {
-        display: block;
     }
+}
 
-    #containerA {
-        position: fixed;
-    }
-
-    #containerB {
-        position: fixed;
-    }
-
-    #girl1 {
-        width: 300px;
-        height: 468.25px;
-        top: 0;
-        right: 135px;
-    }
-
-    .reflector {
-        height: 301px;
-    }
-
+@media only screen and (min-width:1000px) {
     .description {
-        position: fixed;
-        z-index: 1;
-        width: 35vw;
-        height: 20vh;
-        left: 40%;
-        top: 65vh;
-        font-size: 0.8rem;
+        width: 38vw;
+
     }
 
+    .reflector1-container {
+        margin-right: 175px;
+        right: 22%;
+    }
+
+    .reflector2-container {
+        right: -6%;
+    }
+}
+
+
+
+@media only screen and (min-width:1100px) {
+    .description {
+        width: 38vw;
+        left: 13vw;
+    }
+
+    .reflector1-container {
+        right: 19%;
+    }
+}
+
+
+@media only screen and (min-width:1200px) {
+
+    .reflector2-container {
+        right: -11%;
+    }
+}
+
+
+@media only screen and (min-width:1280px) and (max-width:1400px) {
+    .description {
+        width: 38vw;
+    }
+
+    .reflector1-container {
+        margin-right: 175px;
+        right: 16%;
+
+    }
 }
