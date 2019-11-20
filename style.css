@@ -133,6 +133,33 @@ section svg {
     transition: opacity 1s ease-in;
 }
 
+.buttons {
+    position: fixed;
+    left: 33%;
+    bottom: 2%;
+    /* bottom: 20%; */
+    color: black;
+}
+
+button {
+    /* background-color: DodgerBlue; */
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    /* font-size: 16px; */
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#music-btn {
+
+    /* width: 40px;
+    height: 30px; */
+}
+
+#info-btn {}
+
+
 @keyframes moveleft {
     0% {
         transform: rotate(-8deg);
