@@ -1,4 +1,11 @@
-loadPath();
+"use strict";
+
+window.addEventListener("DOMContentLoaded", loadPage);
+
+function loadPage() {
+  loadPath();
+  observeScrolling();
+}
 
 function loadPath() {
   fetch("svg/path.svg")
@@ -22,7 +29,7 @@ function drawPath(svgPath) {
   path.style.strokeDashoffset = pathLength;
 
   // When the page scrolls...
-  window.addEventListener("scroll", function(e) {
+  window.addEventListener("scroll", function (e) {
     // What % down is it?
     let scrollPercentage =
       (document.documentElement.scrollTop + document.body.scrollTop) /
@@ -40,11 +47,9 @@ function drawPath(svgPath) {
 /*********************************************************** */
 const myJSON =
   "https://spreadsheets.google.com/feeds/list/1J--43pnvHQJ8P7i_Nd-rb-iC2312s7fKEiTOyMslAFM/od6/public/values?alt=json";
-
 const description = document.querySelector(".description");
 const audio = description.querySelector("audio");
 const infoBtn = document.querySelector("#info-btn");
-
 const allSections = document.querySelectorAll("section");
 
 let options = {
@@ -64,8 +69,9 @@ function callback(entries) {
     loadcurtainsSVG();
     description.classList.add("show");
     showDetails(entry.target.dataset.decade);
-    audio.volume = 0;
-    songBtn.addEventListener("click", playSong);
+    playSong();
+    //audio.volume = 0;
+    //songBtn.addEventListener("click", playSong);
   });
 }
 
@@ -84,17 +90,12 @@ const textOptions = {
   threshold: 0
 };
 
-const textObserver = new IntersectionObserver(function(entries) {
+const textObserver = new IntersectionObserver(function (entries) {
   entries.forEach(entry => {
     description.classList.remove("show");
     closecurtainsSVG();
   });
 }, textOptions);
-
-allSections.forEach(section => {
-  observer.observe(section);
-  textObserver.observe(section);
-});
 
 function closecurtainsSVG() {
   fetch("svg/closecurtains.svg")
@@ -103,6 +104,18 @@ function closecurtainsSVG() {
       document.querySelector("#Layer_1").innerHTML = data;
     });
 }
+
+function observeScrolling() {
+  allSections.forEach(section => {
+
+    observer.observe(section);
+    textObserver.observe(section);
+
+
+  });
+}
+
+
 
 function showDetails(year) {
   const modal = document.querySelector(".modal-bg");
@@ -129,7 +142,7 @@ function showDetails(year) {
   infoBtn.addEventListener("click", showInfo);
 
   function showInfo() {
-    window.open(description.querySelector(".info-link").textContent, "_blank");
+    window.open(description.querySelector(".info-link").textContent, "", "width=1000,height=500,top=200,left=100");
   }
   //show text decoration
   fetch("svg/ornament.svg")
@@ -150,8 +163,6 @@ function showDetails(year) {
 }
 
 const songBtn = document.querySelector("#music-btn");
-
-// songBtn.addEventListener("click", playSong);
 
 function playSong() {
   audio.load();

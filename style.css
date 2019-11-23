@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers|Barrio|Bungee+Inline|Great+Vibes|Libre+Barcode+128+Text|Monoton|Noto+Sans+KR|Open+Sans+Condensed:300|Pinyon+Script|Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bangers|Bungee+Inline|Emilys+Candy|Great+Vibes|Libre+Barcode+128+Text|Monoton|Montserrat|Open+Sans+Condensed:300|Poiret+One|Special+Elite&display=swap');
 
 * {
     box-sizing: border-box;
@@ -129,7 +129,7 @@ body {
 }
 
 .show {
-    animation: show 4s forwards;
+    animation: show 3s forwards;
 }
 
 @keyframes show {
