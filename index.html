@@ -1,96 +1,121 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Advanced Animation</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Advanced Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body>
-        <div class="wrapper">
+<body>
+    <div class="timeline"></div>
 
-            <div class="containerA">
+    <div id="intro">
+        <div class="intro-text">
+            <h1>100 years of Fashion</h1>
+            <p>Have you ever wondered how women dressep up back in the days?<br>
+                Discover 100 years of European fashion by going through this timeline.<br>
+                For each year (from 1920 to 2020) you will find the clothes they were wearing, a small description
+                about the trends and you can even listen to a song that brings back those old days</p>
+        </div>
 
-                <div class="description">
+    </div>
+
+    <div class="wrapper">
+
+        <div class="containerA">
+
+            <div class="description">
+                <h1 class="year"></h1>
+                <p class="text"></p>
+                <div class="decoration"></div>
+                <!--  start -->
+                <div class="buttons">
+                    <div class="buttons-content">
+                        <button id="music-btn"><i class="fa fa-music"></i></button>
+                        <button id="info-btn"><i class="fa fa-info"></i></button>
+                        <button id="read-btn"><i class="fa fa-book"></i></button>
+                    </div>
+                </div>
+                <!--  end -->
+                <p class="info-link"></p>
+            </div>
+
+
+            <!-- Modal content -->
+            <div class="modal-bg hide">
+                <article class="modal-content">
+                    <span class="close">&times;</span>
                     <h1 class="year"></h1>
                     <p class="text"></p>
-                    <div class="decoration"></div>
-                    <!--  start -->
-                    <div class="buttons">
-                        <div class="buttons-content">
-                            <button id="music-btn"><i class="fa fa-music"></i></button>
-                            <button id="info-btn"><i class="fa fa-info"></i></button>
-                            <button id="read-btn"><i class="fa fa-book"></i></button>
-                        </div>
-                    </div>
-                    <!--  end -->
-                    <p class="info-link"></p>
-                </div>
-
-
-                <!-- Modal content -->
-                <div class="modal-bg hide">
-                    <article class="modal-content">
-                        <span class="close">&times;</span>
-                        <h1 class="year"></h1>
-                        <p class="text"></p>
-                    </article>
-                </div>
-
-
-
-                <div class="timeline"></div>
-
-                <section data-decade="1920"></section>
-                <section data-decade="1930"></section>
-                <section data-decade="1940"></section>
-                <section data-decade="1950"></section>
-                <section data-decade="1960"></section>
-                <section data-decade="1970"></section>
-                <section data-decade="1980"></section>
-                <section data-decade="1990"></section>
-                <section data-decade="2000"></section>
-                <section data-decade="2010"></section>
-                <section data-decade="2020"></section>
-
+                </article>
             </div>
 
-            <div class="containerB">
-                <div id="girl-container">
-                    <div id="girl-position">
-                        <img id="girl1" src="#" alt="model">
-                    </div>
+
+
+            <!-- <div class="timeline"></div> -->
+            <div class="years">
+                <a data-text="1920" href="#section1920">1920</a>
+                <a data-text="1930" href="#section1930">1930</a>
+                <a data-text="1940" href="#section1940">1940</a>
+                <a data-text="1950" href="#section1950">1950</a>
+                <a data-text="1960" href="#section1960">1960</a>
+                <a data-text="1970" href="#section1970">1970</a>
+                <a data-text="1980" href="#section1980">1980</a>
+                <a data-text="1990" href="#section1990">1990</a>
+                <a data-text="2000" href="#section2000">2000</a>
+                <a data-text="2010" href="#section2010">2010</a>
+                <a data-text="2020" href="#section2020">2020</a>
+            </div>
+
+            <section class="model-section" id="section1920" data-decade="1920"></section>
+            <section class="model-section" id="section1930" data-decade="1930"></section>
+            <section class="model-section" id="section1940" data-decade="1940"></section>
+            <section class="model-section" id="section1950" data-decade="1950"></section>
+            <section class="model-section" id="section1960" data-decade="1960"></section>
+            <section class="model-section" id="section1970" data-decade="1970"></section>
+            <section class="model-section" id="section1980" data-decade="1980"></section>
+            <section class="model-section" id="section1990" data-decade="1990"></section>
+            <section class="model-section" id="section2000" data-decade="2000"></section>
+            <section class="model-section" id="section2010" data-decade="2010"></section>
+            <section class="model-section" id="section2020" data-decade="2020"></section>
+
+        </div>
+
+        <div class="containerB">
+            <div id="girl-container">
+                <div id="girl-position">
+                    <img id="girl1" src="images/empty.png" alt="model">
                 </div>
+            </div>
 
-                <div id="Layer_1"></div>
+            <div id="Layer_1"></div>
 
-                <div id="Layer_2"></div>
+            <div id="Layer_2"></div>
 
-                <!-- Ref left -->
-                <div class="reflector1">
-                    <div class="reflector1-container">
-                        <div class="reflector ref1"></div>
+            <!-- Ref left -->
+            <div class="reflector1">
+                <div class="reflector1-container">
+                    <div class="reflector ref1"></div>
 
-                    </div>
                 </div>
-                <!-- Ref right -->
-                <div class="reflector2">
-                    <div class="reflector2-container">
+            </div>
+            <!-- Ref right -->
+            <div class="reflector2">
+                <div class="reflector2-container">
 
-                        <div class="reflector ref2"></div>
-                    </div>
+                    <div class="reflector ref2"></div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
+    </div>
 
-        <script src="svg.js"></script>
-        <script src="script.js"></script>
-    </body>
+    <script src="svg.js"></script>
+    <script src="script.js"></script>
+</body>
 
-    </html>
+</html>

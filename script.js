@@ -29,7 +29,7 @@ function drawPath(svgPath) {
   path.style.strokeDashoffset = pathLength;
 
   // When the page scrolls...
-  window.addEventListener("scroll", function (e) {
+  window.addEventListener("scroll", function(e) {
     // What % down is it?
     let scrollPercentage =
       (document.documentElement.scrollTop + document.body.scrollTop) /
@@ -50,7 +50,7 @@ const myJSON =
 const description = document.querySelector(".description");
 let myAudio = new Audio();
 const infoBtn = document.querySelector("#info-btn");
-const allSections = document.querySelectorAll("section");
+const allSections = document.querySelectorAll(".model-section");
 
 let options = {
   root: null, //the viewport
@@ -89,9 +89,14 @@ const textOptions = {
   threshold: 0
 };
 
-const textObserver = new IntersectionObserver(function (entries) {
+const textObserver = new IntersectionObserver(function(entries) {
   entries.forEach(entry => {
     description.classList.remove("show");
+    document
+      .querySelector(
+        ".years a[data-text='" + entry.target.dataset.decade + "']"
+      )
+      .classList.remove("glow");
     closecurtainsSVG();
     myAudio.volume = 0;
   });
@@ -114,6 +119,10 @@ function observeScrolling() {
 
 function showDetails(year) {
   const modal = document.querySelector(".modal-bg");
+
+  document
+    .querySelector(".years a[data-text='" + year + "']")
+    .classList.add("glow");
 
   fetch(myJSON)
     .then(e => e.json())
@@ -168,7 +177,6 @@ function playSong(year) {
   myAudio.play();
 
   songBtn.addEventListener("click", volumeDown);
-
 }
 
 function volumeUp() {
