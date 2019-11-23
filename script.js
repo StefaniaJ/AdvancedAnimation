@@ -48,7 +48,7 @@ function drawPath(svgPath) {
 const myJSON =
   "https://spreadsheets.google.com/feeds/list/1J--43pnvHQJ8P7i_Nd-rb-iC2312s7fKEiTOyMslAFM/od6/public/values?alt=json";
 const description = document.querySelector(".description");
-const audio = description.querySelector("audio");
+let myAudio = new Audio();
 const infoBtn = document.querySelector("#info-btn");
 const allSections = document.querySelectorAll("section");
 
@@ -69,9 +69,8 @@ function callback(entries) {
     loadcurtainsSVG();
     description.classList.add("show");
     showDetails(entry.target.dataset.decade);
-    playSong();
-    //audio.volume = 0;
-    //songBtn.addEventListener("click", playSong);
+    myAudio.volume = 0;
+    playSong(entry.target.dataset.decade);
   });
 }
 
@@ -94,6 +93,7 @@ const textObserver = new IntersectionObserver(function (entries) {
   entries.forEach(entry => {
     description.classList.remove("show");
     closecurtainsSVG();
+    myAudio.volume = 0;
   });
 }, textOptions);
 
@@ -107,15 +107,10 @@ function closecurtainsSVG() {
 
 function observeScrolling() {
   allSections.forEach(section => {
-
     observer.observe(section);
     textObserver.observe(section);
-
-
   });
 }
-
-
 
 function showDetails(year) {
   const modal = document.querySelector(".modal-bg");
@@ -128,7 +123,6 @@ function showDetails(year) {
     if (data.gsx$year.$t === year) {
       description.querySelector(".year").textContent = data.gsx$year.$t;
       description.querySelector(".year").style.fontFamily = data.gsx$font.$t;
-      description.querySelector("audio #audioSource").src = data.gsx$song.$t;
       description.querySelector(".text").textContent = data.gsx$description.$t;
       document.querySelector(".containerB #girl1").src = data.gsx$outfit.$t;
       description.querySelector(".info-link").textContent = data.gsx$info.$t;
@@ -142,7 +136,11 @@ function showDetails(year) {
   infoBtn.addEventListener("click", showInfo);
 
   function showInfo() {
-    window.open(description.querySelector(".info-link").textContent, "", "width=1000,height=500,top=200,left=100");
+    window.open(
+      description.querySelector(".info-link").textContent,
+      "",
+      "width=1000,height=500,top=200,left=100"
+    );
   }
   //show text decoration
   fetch("svg/ornament.svg")
@@ -164,17 +162,25 @@ function showDetails(year) {
 
 const songBtn = document.querySelector("#music-btn");
 
-function playSong() {
-  audio.load();
-  audio.play();
-  audio.volume = 1;
+function playSong(year) {
+  myAudio = new Audio("audio/" + year + ".mp3");
+  myAudio.volume = 1;
+  myAudio.play();
 
-  songBtn.removeEventListener("click", playSong);
-  songBtn.addEventListener("click", stopSong);
+  songBtn.addEventListener("click", volumeDown);
+
 }
 
-function stopSong() {
-  audio.volume = 0;
-  songBtn.removeEventListener("click", stopSong);
-  songBtn.addEventListener("click", playSong);
+function volumeUp() {
+  myAudio.volume = 1;
+
+  songBtn.removeEventListener("click", volumeUp);
+  songBtn.addEventListener("click", volumeDown);
+}
+
+function volumeDown() {
+  myAudio.volume = 0;
+
+  songBtn.removeEventListener("click", volumeDown);
+  songBtn.addEventListener("click", volumeUp);
 }
