@@ -1,0 +1,26 @@
+{
+  "name": "advancedanimation",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify-js": "minify script.js > dist/script.js",
+    "minify-svg": "minify svg.js > dist/svg.js",
+    "minify-html": "minify index.html > dist/index.html",
+    "minify-css": "minify style.css > dist/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StefaniaJ/AdvancedAnimation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StefaniaJ/AdvancedAnimation/issues"
+  },
+  "homepage": "https://github.com/StefaniaJ/AdvancedAnimation#readme",
+  "description": "",
+  "devDependencies": {
+    "minify": "^4.1.3"
+  }
+}
