@@ -69,7 +69,7 @@ function callback(entries) {
     loadcurtainsSVG();
     description.classList.add("show");
     showDetails(entry.target.dataset.decade);
-    myAudio.volume = 0;
+    volumeDown();
     playSong(entry.target.dataset.decade);
   });
 }
