@@ -98,7 +98,7 @@ const textObserver = new IntersectionObserver(function(entries) {
       )
       .classList.remove("glow");
     closecurtainsSVG();
-    myAudio.volume = 0;
+    volumeDown();
   });
 }, textOptions);
 
@@ -176,12 +176,14 @@ function playSong(year) {
   myAudio.volume = 1;
   myAudio.play();
 
+  songBtn.classList.add("zoomIn");
   songBtn.addEventListener("click", volumeDown);
 }
 
 function volumeUp() {
   myAudio.volume = 1;
 
+  songBtn.classList.add("zoomIn");
   songBtn.removeEventListener("click", volumeUp);
   songBtn.addEventListener("click", volumeDown);
 }
@@ -189,6 +191,7 @@ function volumeUp() {
 function volumeDown() {
   myAudio.volume = 0;
 
+  songBtn.classList.remove("zoomIn");
   songBtn.removeEventListener("click", volumeDown);
   songBtn.addEventListener("click", volumeUp);
 }
