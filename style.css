@@ -414,6 +414,7 @@ button {
         cursor: pointer;
         background-color: transparent;
         z-index: 1;
+        font-size: 18px;
     }
 
     #read-btn {
