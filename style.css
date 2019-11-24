@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers|Barrio|Bungee+Inline|Great+Vibes|Libre+Barcode+128+Text|Monoton|Noto+Sans+KR|Open+Sans+Condensed:300|Pinyon+Script|Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bangers|Bungee+Inline|Emilys+Candy|Great+Vibes|Libre+Barcode+128+Text|Monoton|Montserrat|Open+Sans+Condensed:300|Poiret+One|Special+Elite&display=swap');
 
 * {
     box-sizing: border-box;
@@ -18,6 +18,117 @@ body {
 
 .containerA {
     height: 100vh;
+}
+
+.zoomIn {
+    animation: zoomIn 1s infinite ease-in;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+
+    }
+}
+
+#intro {
+    width: 100vw;
+    height: 100vh;
+}
+
+#intro .intro-text {
+    position: absolute;
+    padding: 1rem;
+    margin: auto;
+    top: 0;
+    z-index: 20;
+}
+
+#intro .intro-text #gif {
+    display: block;
+    margin: auto;
+    height: 50vh;
+}
+
+
+#intro .intro-text h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin-left: -30vw;
+    margin-bottom: 1rem;
+    text-align: center;
+    animation: showTitle 0.8s ease-in forwards;
+}
+
+#intro .intro-text p {
+    line-height: 1.5;
+    opacity: 0;
+    animation: showText 0.8s 0.8s ease-in forwards;
+}
+
+@keyframes showTitle {
+    to {
+        transform: translateX(15vw);
+    }
+}
+
+@keyframes showText {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+}
+
+
+
+.years {
+    display: none;
+}
+
+.years a:link {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.years a:active {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.years a:visited {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.years a:hover {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.slideIn {
+    animation: slideIn 2s 1s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .containerB {
@@ -124,12 +235,11 @@ body {
     left: 17vw;
     top: 5%;
     opacity: 0;
-    transition: opacity 1s;
     z-index: 20;
 }
 
 .show {
-    animation: show 4s forwards;
+    animation: show 3s forwards;
 }
 
 @keyframes show {
@@ -145,6 +255,7 @@ body {
 .description h1 {
     color: #d4af37;
     font-family: 'Pinyon Script', cursive;
+    font-size: 3em;
     opacity: 0.8;
     text-align: center;
     margin-bottom: 1vh;
@@ -299,11 +410,32 @@ button {
     }
 }
 
+
+/* #girl7 {
+    animation: moveGirl 2s ease-in infinite;
+}
+
+@keyframes moveGirl {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(100px);
+    }
+} */
+
+
 @media only screen and (min-width:550px) {
     .modal-content {
         width: 70%;
         height: 70%;
         margin-top: 7%;
+    }
+
+    #intro .intro-text {
+        width: 60vw;
+        left: 20vw;
     }
 }
 
@@ -330,6 +462,14 @@ button {
         width: 100%;
         height: 100%;
     }
+
+    #intro .intro-text {
+        width: 50vw;
+        position: absolute;
+        padding: 1rem;
+        z-index: 20;
+    }
+
 
     #Layer_1 svg {
         transform: translate(0, 0);
@@ -414,7 +554,6 @@ button {
         cursor: pointer;
         background-color: transparent;
         z-index: 1;
-        font-size: 18px;
     }
 
     #read-btn {
@@ -436,6 +575,7 @@ button {
         top: 27vh;
 
     }
+
 }
 
 
@@ -448,6 +588,28 @@ button {
 }
 
 @media only screen and (min-width:1000px) {
+
+    #intro .intro-text {
+        width: 40vw;
+        left: 8vw;
+        top: 0;
+    }
+
+    #intro .intro-text #gif {
+        margin-left: 0;
+    }
+
+    #intro .intro-text h1 {
+        text-align: left;
+        margin-left: -30vw;
+    }
+
+    @keyframes showTitle {
+        to {
+            transform: translateX(30vw);
+        }
+    }
+
     .description {
         width: 38vw;
 
@@ -460,6 +622,23 @@ button {
 
     .reflector2-container {
         right: -6%;
+    }
+
+    .years {
+        display: block;
+        position: fixed;
+        top: 5vh;
+        left: 10px;
+        z-index: 20;
+    }
+
+    .years a:link {
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    .glow {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #d4af37, 0 0 40px #d4af37, 0 0 50px #d4af37, 0 0 60px #d4af37, 0 0 10px #d4af37;
     }
 }
 
